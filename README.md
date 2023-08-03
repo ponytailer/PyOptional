@@ -1,6 +1,10 @@
 # PyOptional
 optional object for python
 
+### How to install
+
+
+`pip install -U optional_python`
 
 ### How to use
 

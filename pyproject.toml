@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "pyoptional"
+name = "optional-python"
 version = "0.0.1"
 description = "Optional object for python"
 authors = ["ponytailer <huangxiaohen2738@gmail.com>"]
