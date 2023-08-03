@@ -87,3 +87,12 @@ def test_or_else():
 
     ol = Optional.of_nullable(123).or_else(1)
     assert ol == 123
+
+
+def test_or_raise():
+    with pytest.raises(ValueError) as e:
+        Optional.of_nullable(None).or_raise(ValueError("123"))
+        assert e.value == "123"
+
+    o = Optional.of_nullable("value").or_raise(ValueError("123"))
+    assert o == "value"

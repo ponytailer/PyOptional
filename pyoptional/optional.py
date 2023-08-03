@@ -21,17 +21,21 @@ class BaseOptional:
         if not self.is_present():
             func()
 
+    def or_raise(self, exc: Exception):
+        if self.value is None:
+            raise exc
+        return self.value
+
+    def get(self):
+        if self.value is None:
+            raise ValueError("value is None, can't call the get")
+        return self.value
+
 
 class Empty(BaseOptional):
 
     def is_present(self) -> bool:
         return False
-
-    def or_raise(self, exc: Exception):
-        raise exc
-
-    def get(self):
-        raise ValueError("value is None, can't call the get")
 
     def if_present(self, func: t.Callable):
         ...
@@ -64,8 +68,3 @@ class Optional(BaseOptional):
 
     def is_present(self) -> bool:
         return self.value is not None
-
-    def get(self) -> Value:
-        if not self.is_present():
-            raise ValueError("value is None, can't call the get")
-        return self.value
