@@ -7,8 +7,12 @@ class BaseOptional:
     def __init__(self, value: t.Any = None):
         self.value = value
 
-    def or_else(self, func: t.Callable[[], t.Any]) -> t.Any:
-        return func() if self.value is None else self.value
+    def or_else(self, value: t.Any):
+        if self.value is None:
+            if callable(value):
+                value = value()
+            return value
+        return self.value
 
     def is_present(self):
         raise NotImplementedError
@@ -22,6 +26,9 @@ class Empty(BaseOptional):
 
     def is_present(self) -> bool:
         return False
+
+    def or_raise(self, exc: Exception):
+        raise exc
 
     def get(self):
         raise ValueError("value is None, can't call the get")

@@ -76,3 +76,14 @@ def test_get():
     with pytest.raises(ValueError) as e:
         Optional.of_nullable(None).get()
         assert "value is None, can't call the get" == e.value
+
+
+def test_or_else():
+    ol = Optional.of_nullable(None).or_else(lambda: 1)
+    assert ol == 1
+
+    ol = Optional.of_nullable(None).or_else(1)
+    assert ol == 1
+
+    ol = Optional.of_nullable(123).or_else(1)
+    assert ol == 123
