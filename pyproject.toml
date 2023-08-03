@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "pyoptional"
+version = "0.0.1"
+description = "Optional object for python"
+authors = ["ponytailer <huangxiaohen2738@gmail.com>"]
+readme = "README.md"
+packages = [{ include = "pyoptional" }]
+homepage = "https://github.com/ponytailer/PyOptional"
+
+[[tool.poetry.source]]
+name = "tuna"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+default = true
+
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
