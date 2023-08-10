@@ -1,4 +1,5 @@
 # PyOptional
+[![codecov](https://codecov.io/gh/ponytailer/PyOptional/branch/main/graph/badge.svg?token=DCYLFRHA28)](https://codecov.io/gh/ponytailer/PyOptional)
 
 optional object for python
 
